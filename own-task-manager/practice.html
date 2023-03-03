@@ -4,7 +4,55 @@
     <title>Kiran Todo App</title>
   </head>
   <body>
+
+   <!-- exercise 8-1 <button id="todo-button" onclick="changeToDone()">To DO</button> --> 
+
+   <!-- exercise 8-2
+    <div id="counter">0</div>
+   <button onclick="countUp()">Up</button> -->
+
+    <!-- exercise 8-3
+      <div id="counter">0</div>
+    <button onclick="countDown()">Down</button>
+    -->
+    <!-- <input id="todo-title" type="text" />
+    <button onclick="displayTitle()"> Display Title</button> -->
+
     <script>
+
+     /* // exercise 8-4
+    function displayTitle() {
+      let textbox = document.getElementById('todo-title');
+      let title = textbox.value;
+
+      let div = document.createElement('div');
+      div.innerText = title;
+      document.body.appendChild(div);
+
+    } */
+
+     /* // exercise 8-3
+      let count = 0;
+      function countDown() {
+        count = count -1;
+        let counter = document.getElementById('counter');
+        counter.innerText = count;
+      } */
+
+      /* //exercise 8-2
+      let count = 0;
+      function countUp() {
+        count = count + 1;
+        let counter = document.getElementById('counter');
+        counter.innerText = count;
+      } */
+
+      /* //exercise 8-1
+      function changeToDone() {
+        let button = document.getElementById('todo-button');
+        button.innerText = 'Done';
+      } */
+
      /* let element = document.createElement('button');
       element.innerText = 'Click Me';
       document.body.appendChild(element); 
@@ -21,7 +69,7 @@
       element.innerText = 'Get groceries';
       document.body.appendChild(element); */
 
-      function greeting(name) {
+     /* function greeting(name) {
         console.log('Hello ' + name);
       }
 
@@ -38,7 +86,40 @@
 
       greeting('Kiran');
       toUpper('kiran');
-      inchesToCentimeters(10);
+      inchesToCentimeters(10); */
+
+     /*  // exercise-7-1
+      let str = ['hello', 'world', 'kiran'];
+      let result =[];
+
+      str.forEach(function(word) {
+        result.push(word.toUpperCase());
+      }); */
+
+      /* // exercise 7-2
+      let str =['bark', 'meow'];
+      let result = [];
+
+      str.forEach(function(word) {
+        result.push(word);
+        result.push(word);
+
+      }); */
+
+    /* //exercise 7-3
+    function arraySum(numArray) {
+      let total = 0;
+
+      numArray.forEach(function (num){
+        total = total+num
+      });
+      console.log(total);
+    }
+
+    arraySum([1, 2, 3]);
+    arraySum([5, -2, 7, 0]); */
+
+
       
     </script>
 
