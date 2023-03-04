@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Shopping Cart</title>
+  </head>
+
+  <body>
+    <button onclick="addItem('Apple')">Apple</button>
+    <button onclick="addItem('Tomato')">Tomato</button>
+    <button onclick="addItem('Eggs')">Eggs</button>
+    <button onclick="clearCart()">Clear</button>
+    <div id="cart"></div>
+
+
+    <script>
+      function addItem(item) {
+        const element = document.createElement('div');
+        element.innerText = item;
+        const cartId = document.getElementById('cart');
+        cartId.appendChild(element);
+      }
+
+      function clearCart() {
+        document.getElementById('cart').innerHTML = '';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <input id="measurement" />
+    <button onclick="cnvrtToCM()">Convert to cm</button>
+    <button onclick="cnvrtToIN()">Convert to in</button>
+    <div id="result"></div>
+    <script>
+      const measurement = document.getElementById('measurement');
+
+      function cnvrtToCM() {
+        const value = measurement.value;
+
+        const convertedValue = +value * 2.54;
+
+        const result = document.createElement('div');
+        result.innerText = convertedValue;
+        document.body.appendChild(result);
+      }
+
+      function cnvrtToIN() {
+        const value = measurement.value;
+        const convertedValue = +value / 2.54;
+
+        const result = document.createElement('div');
+        result.innerText = convertedValue;
+        document.body.appendChild(result);
+      }
+    </script>
+  </body>
+</html>
