@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      //question 1
+      function strToUppercase(str) {
+        str = str.toUpperCase();
+        return str;
+      }
+
+      const name = 'kiran';
+      console.log(strToUppercase(name));
+
+      //question 2
+      function aboveFreezing(temps) {
+
+        const tempsAboveFreezing = temps.filter(function (temp){
+          return temp > 32;
+      });
+        return tempsAboveFreezing;
+      }
+
+      const tempsAboveFreezing = aboveFreezing([40, 67, 8, 29, 100, -3, 0]);
+      console.log(tempsAboveFreezing);
+
+      //question 3
+
+      function removeRed(foodArray) {
+
+       const filteredFood = foodArray.filter (function (food) {
+          return food.color != 'red';
+        })
+
+        return filteredFood;
+      }
+
+
+      const foodArray = [{
+        name: 'Apple',
+        color: 'red'
+      },
+      { 
+        name: 'Egg',
+        color: 'white'
+      }];
+
+      filteredFood = removeRed(foodArray);
+
+      console.log(filteredFood);
+
+
+    </script>
+  </body>
+</html.>
