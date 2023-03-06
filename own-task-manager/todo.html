@@ -11,7 +11,7 @@
     <div id="todo-list"></div>
     <script>
 
-      const todos = [{
+      let todos = [{
         title: 'Get groceries',
         dueDate: '2023-10-04',
         id: 'id1'
@@ -34,7 +34,7 @@
         const datePicker = document.getElementById('date-picker');
         const dueDate = datePicker.value;
 
-        const id = new Date().getTime();
+        const id = '' + new Date().getTime();
 
         todos.push({
           title: title,
@@ -48,9 +48,19 @@
         const deleteButton = event.target;
         const idToDelete = deleteButton.id;
 
-        todos.filter(function (todo) {
-          
+        todos = todos.filter(function (todo) {
+          // if the id of this todo matches idToDelete, return false,
+          // For everything else, return true
+          if(todo.id === idToDelete) {
+            return false;
+          }
+          else {
+            return true;
+          }
+
         });
+
+        render();
       }
 
       function render () {
