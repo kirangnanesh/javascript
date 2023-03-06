@@ -11,8 +11,17 @@
     <div id="todo-list"></div>
     <script>
 
-      //Model
-      let todos = [{
+      // Model
+      // If localstorage has a todos array, then use it
+      // Otherwise use the default array.
+      let todos;
+      // Retrieve localStorage
+      const savedTodos = JSON.parse(localStorage.getItem('todos'));
+      // Check if it's an array
+      if (Array.isArray(savedTodos)) {
+        todos = savedTodos;
+      } else {
+        todos = [{
         title: 'Get groceries',
         dueDate: '2023-10-04',
         id: 'id1'
@@ -25,8 +34,9 @@
         dueDate: '2023-03-03',
         id: 'id3'
       }];
-
-      //Creates a todo
+      }
+ 
+      // Creates a todo
       function createTodo(title, dueDate) {
         const id = '' + new Date().getTime();
 
@@ -36,25 +46,29 @@
           id: id
         });
 
-        //html
+        saveTodos();
       }
 
-      //Deletes a todo
+      // Deletes a todo
       function removeTodo(idToDelete) {
         todos = todos.filter(function (todo) {
-          // if the id of this todo matches idToDelete, return false,
+          // If the id of this todo matches idToDelete, return false,
           // For everything else, return true
-          if(todo.id === idToDelete) {
+          if (todo.id === idToDelete) {
             return false;
-          }
-          else {
+          } else {
             return true;
           }
         });
+
+        saveTodos();
       }
 
+      function saveTodos() {
+        localStorage.setItem('todos', JSON.stringify(todos));
+      }
 
-      //controller
+      // Controller
       function addTodo() {
         const textbox = document.getElementById('todo-title');
         const title = textbox.value;
@@ -75,18 +89,18 @@
         render();
       }
 
-      //view
-      function render () {
-        //reset out list
+      // View
+      function render() {
+        // reset our list
         document.getElementById('todo-list').innerHTML = '';
 
-        todos.forEach(function(todo) {
+        todos.forEach(function (todo) {
           const element = document.createElement('div');
           element.innerText = todo.title + ' ' + todo.dueDate;
 
           const deleteButton = document.createElement('button');
           deleteButton.innerText = 'Delete';
-          deleteButton.style = 'margin-left: 12px;';
+          deleteButton.style = 'margin-left: 12px';
           deleteButton.onclick = deleteTodo;
           deleteButton.id = todo.id;
           element.appendChild(deleteButton);
